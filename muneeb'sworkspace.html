@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login Page with Lights</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #121212;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .container {
+    position: relative;
+    background: #1c1c1c;
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow:
+      0 0 10px #00ffea,
+      0 0 20px #00ffea,
+      0 0 30px #00ffea80;
+    width: 350px;
+    text-align: center;
+  }
+
+  h2 {
+    margin-bottom: 25px;
+    color: #00ffea;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #333;
+    color: #eee;
+    box-shadow:
+      inset 0 0 5px #00ffea80;
+    transition: background 0.3s ease;
+  }
+
+  input[type="text"]:focus, input[type="password"]:focus {
+    background: #1a1a1a;
+    box-shadow:
+      0 0 8px #00ffea;
+  }
+
+  button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #00ffea;
+    color: #121212;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow:
+      0 0 10px #00ffea;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background: #00c8b0;
+    box-shadow:
+      0 0 20px #00c8b0;
+  }
+
+  /* Floating lights around form */
+  .light {
+    position: absolute;
+    border-radius: 50%;
+    animation: blink 3s infinite alternate;
+    filter: drop-shadow(0 0 6px);
+  }
+
+  .light1 {
+    width: 15px;
+    height: 15px;
+    background: #00ffea;
+    top: -10px;
+    left: 20px;
+    animation-delay: 0s;
+  }
+
+  .light2 {
+    width: 25px;
+    height: 25px;
+    background: #00ffea50;
+    top: 10px;
+    right: 30px;
+    animation-delay: 1s;
+  }
+
+  .light3 {
+    width: 12px;
+    height: 12px;
+    background: #00ffea99;
+    bottom: 15px;
+    left: 10px;
+    animation-delay: 0.6s;
+  }
+
+  .light4 {
+    width: 20px;
+    height: 20px;
+    background: #00ffea33;
+    bottom: -10px;
+    right: 40px;
+    animation-delay: 1.2s;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0.3;
+      transform: scale(0.85);
+      filter: drop-shadow(0 0 4px);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 12px);
+    }
+    100% {
+      opacity: 0.3;
+      transform: scale(0.85);
+      filter: drop-shadow(0 0 4px);
+    }
+  }
+</style>
+
+<!-- Add this script inside head to handle login -->
+<script>
+  function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username === 'admin' && password === 'admin') {
+      window.location.href = 'index.html'; // Redirect on success
+    } else {
+      alert('Invalid username or password');
+    }
+  }
+</script>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <!-- Add id attributes for JS -->
+    <input type="text" id="username" placeholder="Username" value="" />
+    <input type="password" id="password" placeholder="Password" value="" />
+    
+    <!-- Add onclick to button to run login function -->
+    <button onclick="login()">Sign In</button>
+
+    <div class="light light1"></div>
+    <div class="light light2"></div>
+    <div class="light light3"></div>
+    <div class="light light4"></div>
+  </div>
+</body>
+</html>
